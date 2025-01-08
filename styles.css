@@ -1,0 +1,120 @@
+/* Base Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #F5F7DC; /* Light Beige as base background */
+    color: #0F0326; /* Dark Blue as main text color */
+  }
+  
+  /* Navbar */
+  .navbar {
+    background-color: #B5D99C; /* Soft Green for navbar background */
+  }
+  
+  .navbar-brand {
+    color: #0F0326; /* Dark Blue */
+  }
+  
+  .nav-link {
+    color: #0F0326;
+  }
+  
+  .nav-link:hover {
+    color: #FFFF82; /* Yellow accent on hover */
+  }
+  
+  /* Hero Section */
+  .jumbotron {
+    background: #E65F5C; /* Coral background for hero section */
+    color: #F5F7DC; /* Light Beige for text in hero */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  }
+  
+  .jumbotron .btn {
+    background-color: #FFFF82; /* Yellow button */
+    color: #0F0326;
+    border: none;
+  }
+  
+  .jumbotron .btn:hover {
+    background-color: #B5D99C; /* Soft Green on hover */
+    color: #0F0326;
+  }
+  
+  /* Featured Recipes Section */
+  .card {
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+  }
+  
+  .card-title {
+    color: #0F0326;
+  }
+  
+  .card-text {
+    color: #0F0326;
+  }
+  
+  .btn-primary {
+    background-color: #E65F5C; /* Coral for buttons */
+    border-color: #E65F5C;
+  }
+  
+  .btn-primary:hover {
+    background-color: #FFFF82; /* Yellow on hover */
+    border-color: #FFFF82;
+    color: #0F0326;
+  }
+  
+  /* Testimonials Section */
+  blockquote {
+    font-style: italic;
+    background: #FFFF82; /* Yellow background for testimonials */
+    color: #0F0326;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Call to Action Section */
+  .bg-primary {
+    background-color: #B5D99C !important; /* Soft Green background */
+    color: #0F0326;
+  }
+  
+  .bg-primary .btn-outline-light {
+    color: #FFFF82;
+    border-color: #FFFF82;
+  }
+  
+  .bg-primary .btn-outline-light:hover {
+    background-color: yellow;
+    color: #0F0326;
+  }
+  
+  /* Footer */
+  footer {
+    background-color: #0F0326; /* Dark Blue for footer */
+    color: #F5F7DC; /* Light Beige text in footer */
+  }
+  
+  .footer i {
+    color: #FFFF82; /* Yellow icons in footer */
+  }
+  
+  .footer i:hover {
+    color: #E65F5C; /* Coral on hover */
+  }
+  
+  .footer a {
+    color: #F5F7DC;
+  }
+  
+  .footer a:hover {
+    color: #FFFF82;
+  }
+  

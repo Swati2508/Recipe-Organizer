@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+    .navbar {
+      background-color: #B5D99C; 
+      padding: 10px 20px;
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: #0F0326; 
+    }
+
+    .nav-link {
+      color: #0F0326;
+      font-size: 1rem;
+      padding: 8px 15px;
+    }
+
+    .nav-link:hover {
+      color: #FFFF82; 
+     }
+
+        header {
+            background-color:#E65F5C;
+            color: black;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+        footer {
+      background-color: #0F0326; 
+      color: #F5F7DC; 
+      padding: 20px 0;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+
+    footer a {
+      color: #FFFF82; 
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: #E65F5C; 
+    }
+
+        .contact-section {
+            padding: 40px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+        <a class="navbar-brand" href="#">RecipeBook</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="recipes.html">Recipes</a></li>
+            <li class="nav-item"><a class="nav-link" href="Meal Planner.html">Meal Planner</a></li>
+            <li class="nav-item"><a class="nav-link" href="Contact Us.html">Contact Us</a></li>
+            <li class="nav-item"><a class="nav-link btn btn-primary text-white" href="signin.html">Sign Up / Sign In</a></li>
+          </ul>
+        </div>
+      </nav>
+    <header>
+        <h1>Contact Us</h1>
+    </header>
+
+    <section id="contact-us" class="contact-section">
+        <div class="container">
+            <h2>Get in Touch</h2>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea class="form-control" id="message" rows="3" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="text-center">
+        <p>&copy; 2024 RecipeBook. All rights reserved.</p>
+        <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            alert('Thank you for contacting us! We will get back to you soon.');
+            document.getElementById('contactForm').reset();
+        });
+    </script>
+</body>
+
+</html>

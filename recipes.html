@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recipes</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url('/images/background\ recipe.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: red;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      ;
+      z-index: -1;
+    }
+
+    .container,
+    .navbar,
+    footer {
+      position: relative;
+      z-index: 1;
+    }
+
+    .navbar {
+      background-color: #B5D99C;
+      padding: 15px 15px;
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 1.7rem;
+      color: #0F0326;
+    }
+
+    .nav-link {
+      color: #0F0326;
+      font-size: 1rem;
+      margin-right: 15px 10px;
+      transition: color 0.3s ease;
+      ;
+    }
+
+    .nav-link:hover {
+      color: #FFFF82;
+    }
+
+    .text-center mb-4 {
+      color: red;
+    }
+
+    .card {
+      margin-top: 1rem;
+      border: none;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-header {
+      background-color: #3A3335;
+      color: #fff;
+      padding: 15px;
+      font-size: 1.3rem;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .card-title {
+      color: red;
+    }
+
+    .table {
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .table thead th {
+      background-color: #4D8C57;
+      color: #ffffff;
+      font-weight: bold;
+    }
+
+    .table tbody tr:nth-child(odd) {
+      background-color: #f0f7f1;
+    }
+
+    .table tbody tr:nth-child(even) {
+      background-color: #e0efe1;
+    }
+
+    .table tbody td {
+      color: #333333;
+      padding: 15px;
+      font-size: 1rem;
+    }
+
+    .btn-primary {
+      background-color: #B5D99C;
+      border-color: #B5D99C;
+    }
+
+    .btn-primary:hover {
+      background-color: #9DBF8B;
+      border-color: #9DBF8B;
+    }
+
+    .btn-warning {
+      background-color: #FFB400;
+      border-color: #FFB400;
+    }
+
+    .btn-danger {
+      background-color: #E65F5C;
+      border-color: #E65F5C;
+    }
+
+    footer {
+      background-color: #0F0326;
+      color: #F5F7DC;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 0.9rem;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    footer a {
+      color: #FFFF82;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+      color: #E65F5C;
+    }
+
+    h1.text-center.mb-4 {
+      color: #F5F7DC;
+      background-color: #E65F5C;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+      padding: 20px 0;
+      width: 100%;
+      text-align: center;
+      font-size: 2rem;
+      border-bottom: none;
+    }
+  </style>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">  
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+    <a class="navbar-brand" href="#">RecipeBook</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="recipes.html">Recipes</a></li>
+        <li class="nav-item"><a class="nav-link" href="Meal Planner.html">Meal Planner</a></li>
+        <li class="nav-item"><a class="nav-link" href="Contact Us.html">Contact Us</a></li>
+        <li class="nav-item"><a class="nav-link btn btn-primary text-white" href="signin.html">Sign Up / Sign In</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container mt-5">
+    <h1 class="text-center mb-4">Recipe Organizer</h1>
+
+    <div class="card shadow-sm">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <h2 class="card-title">Your Recipes</h2>
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addRecipeModal">Add Recipe</button>
+      </div>
+      <div class="card-body">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Category</th>
+              <th>Ingredients</th>
+              <th>Instructions</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="recipeList"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="addRecipeModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Add Recipe</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form id="addRecipeForm" onsubmit="addRecipe(event)">
+          <div class="modal-body">
+            <input type="text" class="form-control mb-3" id="name" placeholder="Recipe Name" required />
+            <input type="text" class="form-control mb-3" id="category" placeholder="Category" required />
+            <input type="text" class="form-control mb-3" id="ingredients" placeholder="Ingredients (comma-separated)"
+              required />
+            <textarea class="form-control" id="instructions" placeholder="Instructions" rows="3" required></textarea>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Add Recipe</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="editRecipeModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit Recipe</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form id="editRecipeForm" onsubmit="saveRecipeChanges(event)">
+          <div class="modal-body">
+            <input type="text" class="form-control mb-3" id="editName" placeholder="Recipe Name" required />
+            <input type="text" class="form-control mb-3" id="editCategory" placeholder="Category" required />
+            <input type="text" class="form-control mb-3" id="editIngredients"
+              placeholder="Ingredients (comma-separated)" required />
+            <textarea class="form-control" id="editInstructions" placeholder="Instructions" rows="3"
+              required></textarea>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
+  <footer class="text-center">
+    <p>&copy; 2024 RecipeBook. All rights reserved.</p>
+    <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+  </footer>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const apiUrl = 'http://127.0.0.1:3000/recipes';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      fetchRecipes();
+    });
+
+    async function fetchRecipes() {
+      try {
+        const response = await fetch(apiUrl);
+        const recipes = await response.json();
+        const recipeList = document.getElementById('recipeList');
+        recipeList.innerHTML = '';
+        recipes.forEach(recipe => {
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td>${recipe.name}</td>
+            <td>${recipe.category}</td>
+            <td>${recipe.ingredients}</td>
+            <td>${recipe.instructions}</td>
+            <td>
+              <button class="btn btn-warning btn-sm" onclick="editRecipe(${recipe.id})">Edit</button>
+              <button class="btn btn-danger btn-sm" onclick="deleteRecipe(${recipe.id})">Delete</button>
+            </td>
+          `;
+          recipeList.appendChild(row);
+        });
+      } catch (error) {
+        console.error('Error fetching recipes:', error);
+      }
+    }
+
+    async function addRecipe(event) {
+      event.preventDefault();
+      const name = document.getElementById('name').value;
+      const category = document.getElementById('category').value;
+      const ingredients = document.getElementById('ingredients').value;
+      const instructions = document.getElementById('instructions').value;
+      const newRecipe = { name, category, ingredients, instructions };
+
+      try {
+        const response = await fetch(apiUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(newRecipe)
+        });
+        await response.json();
+        fetchRecipes();
+        document.getElementById('addRecipeForm').reset();
+        document.querySelector('.btn-close').click();
+      } catch (error) {
+        console.error('Error adding recipe:', error);
+      }
+    }
+
+    async function deleteRecipe(id) {
+      try {
+        const response = await fetch(`${apiUrl}/${id}`, { method: 'DELETE' });
+        await response.json();
+        fetchRecipes();
+      } catch (error) {
+        console.error('Error deleting recipe:', error);
+      }
+    }
+
+    let currentRecipeId;
+
+    async function editRecipe(id) {
+      currentRecipeId = id;
+
+      const response = await fetch(`${apiUrl}/${id}`);
+      const recipe = await response.json();
+
+      document.getElementById("editName").value = recipe.name;
+      document.getElementById("editCategory").value = recipe.category;
+      document.getElementById("editIngredients").value = recipe.ingredients;
+      document.getElementById("editInstructions").value = recipe.instructions;
+
+      new bootstrap.Modal(document.getElementById("editRecipeModal")).show();
+    }
+
+    async function saveRecipeChanges(event) {
+      event.preventDefault();
+
+      const updatedRecipe = {
+        name: document.getElementById("editName").value,
+        category: document.getElementById("editCategory").value,
+        ingredients: document.getElementById("editIngredients").value,
+        instructions: document.getElementById("editInstructions").value,
+      };
+
+      try {
+        const response = await fetch(`${apiUrl}/${currentRecipeId}`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(updatedRecipe)
+        });
+
+        if (response.ok) {
+          alert('Recipe updated successfully');
+          fetchRecipes();
+
+          const editModal = bootstrap.Modal.getInstance(document.getElementById("editRecipeModal"));
+          editModal.hide();
+        } else {
+          console.error('Error updating recipe');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    }
+  </script>
+</body>
+</html>

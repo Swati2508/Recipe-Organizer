@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meal Planner</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #F9F9F9; 
+      color: #333; 
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+
+    
+    .navbar {
+      background-color: #B5D99C; 
+      padding: 10px 20px;
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: #0F0326; 
+    }
+
+    .nav-link {
+      color: #0F0326;
+      font-size: 1rem;
+      padding: 8px 15px;
+    }
+
+    .nav-link:hover {
+      color: #FFFF82; 
+    }
+
+    header.jumbotron {
+      background: #E65F5C; 
+      color: #F5F7DC; 
+      padding: 50px 0;
+      text-align: center;
+    }
+
+    .jumbotron h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+
+    .jumbotron .btn {
+      background-color: #FFD700; 
+      color: #0F0326; 
+      border: none;
+      padding: 12px 24px;
+      font-size: 1.1rem;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .jumbotron .btn:hover {
+      background-color: #4CAF50; 
+    }
+
+    .meal-planner {
+      max-width: 900px;
+      margin: 40px auto;
+      background-color: #fff; 
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .meal-planner h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333; 
+    }
+
+    .day-meal {
+      margin-bottom: 20px;
+    }
+
+    .meal-select {
+      width: 100%;
+      padding: 12px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      transition: border-color 0.3s;
+    }
+
+    .meal-select:hover {
+      border-color: #4CAF50; 
+    }
+
+    
+    .submit-btn {
+      background-color: #4CAF50; 
+      color: #fff;
+      border: none;
+      padding: 12px 24px;
+      font-size: 1.1rem;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .submit-btn:hover {
+      background-color: #45a049; 
+    }
+
+    footer {
+      background-color: #0F0326; 
+      color: #F5F7DC; 
+      padding: 20px 0;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+
+    footer a {
+      color: #FFFF82; 
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: #E65F5C; 
+    }
+
+    .shopping-list-generator {
+      max-width: 800px;
+      margin: 40px auto;
+      background-color: #fff; 
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .shopping-list-generator h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .shopping-list-generator .btn {
+      margin-top: 20px;
+    }
+
+    #shopping-list-output {
+      list-style-type: none; 
+      padding: 0;
+    }
+
+  </style>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha384-DyZ2jL9cTRH4gphqCtPiU1lJhvcLwVd8BeSgP3myWyTz6Ro2qFOEjK0GjlF3g3Et" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+    <a class="navbar-brand" href="#">RecipeBook</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="recipes.html">Recipes</a></li>
+        <li class="nav-item"><a class="nav-link" href="Meal Planner.html">Meal Planner</a></li>
+        <li class="nav-item"><a class="nav-link" href="Contact Us.html">Contact Us</a></li>
+        <li class="nav-item"><a class="nav-link btn btn-primary text-white" href="signin.html">Sign Up / Sign In</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="jumbotron">
+    <h1>Plan Your Meals</h1>
+    <p>Healthy and delicious recipes at your fingertips!</p>
+    <a href="#meal-planner" class="btn">Get Started</a> 
+  </header>
+
+  <section id="meal-planner"> 
+    <div class="meal-planner">
+      <h2>Weekly Meal Planner</h2>
+      <form>
+        <div class="day-meal">
+          <label for="mondayDinner">Monday Dinner:</label>
+          <select id="mondayDinner" class="meal-select">
+            <option value="">Select Meal</option>
+            <option value="Grilled Chicken with Veggies">Grilled Chicken with Veggies</option>
+            <option value="Beef Stir Fry">Beef Stir Fry</option>
+            <option value="Vegetable Stir Fry">Vegetable Stir Fry</option>
+          </select>
+        </div>
+        <div class="day-meal">
+          <label for="tuesdayDinner">Tuesday Dinner:</label>
+          <select id="tuesdayDinner" class="meal-select">
+            <option value="">Select Meal</option>
+            <option value="Salmon with Asparagus">Salmon with Asparagus</option>
+            <option value="Pasta Primavera">Pasta Primavera</option>
+            <option value="Vegetable Curry with Rice">Vegetable Curry with Rice</option>
+          </select>
+        </div>
+        <div class="day-meal">
+          <label for="wednesdayDinner">Wednesday Dinner:</label>
+          <select id="wednesdayDinner" class="meal-select">
+            <option value="">Select Meal</option>
+            <option value="Chicken Tacos">Chicken Tacos</option>
+            <option value="Quinoa Salad">Quinoa Salad</option>
+            <option value="Baked Ziti">Baked Ziti</option>
+          </select>
+        </div>
+        <div class="day-meal">
+          <label for="thursdayDinner">Thursday Dinner:</label>
+          <select id="thursdayDinner" class="meal-select">
+            <option value="">Select Meal</option>
+            <option value="Stir-fried Shrimp">Stir-fried Shrimp</option>
+            <option value="Lentil Soup">Lentil Soup</option>
+            <option value="Veggie Pizza">Veggie Pizza</option>
+          </select>
+        </div>
+        <div class="day-meal">
+          <label for="fridayDinner">Friday Dinner:</label>
+          <select id="fridayDinner" class="meal-select">
+            <option value="">Select Meal</option>
+            <option value="Fish Tacos">Fish Tacos</option>
+            <option value="Stuffed Peppers">Stuffed Peppers</option>
+            <option value="Pasta Carbonara">Pasta Carbonara</option>
+          </select>
+        </div>
+        <div class="day-meal">
+          <label for="saturdayDinner">Saturday Dinner:</label>
+          <select id="saturdayDinner" class="meal-select">
+            <option value="">Select Meal</option>
+            <option value="BBQ Ribs">BBQ Ribs</option>
+            <option value="Greek Salad">Greek Salad</option>
+            <option value="Curry Chicken">Curry Chicken</option>
+          </select>
+        </div>
+        <div class="day-meal">
+          <label for="sundayDinner">Sunday Dinner:</label>
+          <select id="sundayDinner" class="meal-select">
+            <option value="">Select Meal</option>
+            <option value="Roast Beef">Roast Beef</option>
+            <option value="Vegetable Stir Fry">Vegetable Stir Fry</option>
+            <option value="Pancakes">Pancakes</option>
+          </select>
+        </div>
+
+        <button type="submit" class="submit-btn btn btn-primary btn-block">Submit Meal Plan</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="shopping-list">
+    <div class="shopping-list-generator">
+      <h2>Shopping List Generator</h2>
+      <form id="recipe-selector">
+        <label for="recipe">Select Recipes:</label>
+        <select id="recipe" class="meal-select" multiple>
+          <option value="Grilled Chicken with Veggies">Grilled Chicken with Veggies</option>
+          <option value="Beef Stir Fry">Beef Stir Fry</option>
+          <option value="Vegetable Stir Fry">Vegetable Stir Fry</option>
+          <option value="Salmon with Asparagus">Salmon with Asparagus</option>
+          <option value="Pasta Primavera">Pasta Primavera</option>
+          <option value="Vegetable Curry with Rice">Vegetable Curry with Rice</option>
+          <option value="Chicken Tacos">Chicken Tacos</option>
+          <option value="Quinoa Salad">Quinoa Salad</option>
+          <option value="Baked Ziti">Baked Ziti</option>
+        </select>
+        <button type="button" id="generate-list" class="submit-btn">Generate Shopping List</button>
+      </form>
+
+      <h3>Your Shopping List:</h3>
+      <ul id="shopping-list-output"></ul>
+    </div>
+  </section>
+
+  <footer class="text-center">
+    <p>&copy; 2024 RecipeBook. All rights reserved.</p>
+    <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    const recipes = {
+      "Grilled Chicken with Veggies": ["Chicken Breast", "Bell Peppers", "Olive Oil", "Garlic"],
+      "Beef Stir Fry": ["Beef Strips", "Soy Sauce", "Broccoli", "Carrots"],
+      "Vegetable Stir Fry": ["Broccoli", "Carrots", "Bell Peppers", "Soy Sauce"],
+      "Salmon with Asparagus": ["Salmon Fillet", "Asparagus", "Lemon", "Garlic"],
+      "Pasta Primavera": ["Pasta", "Zucchini", "Bell Peppers", "Olive Oil"],
+      "Vegetable Curry with Rice": ["Rice", "Coconut Milk", "Curry Powder", "Mixed Vegetables"],
+      "Chicken Tacos": ["Tortillas", "Chicken Breast", "Lettuce", "Tomato", "Cheese"],
+      "Quinoa Salad": ["Quinoa", "Cucumber", "Feta Cheese", "Olive Oil"],
+      "Baked Ziti": ["Ziti Pasta", "Marinara Sauce", "Mozzarella Cheese", "Ground Beef"]
+    };
+
+    document.getElementById("generate-list").addEventListener("click", function() {
+      const selectedOptions = Array.from(document.getElementById("recipe").selectedOptions);
+      const shoppingList = new Set(); 
+
+      selectedOptions.forEach(option => {
+        const recipeName = option.value;
+        if (recipes[recipeName]) {
+          recipes[recipeName].forEach(ingredient => shoppingList.add(ingredient));
+        }
+      });
+
+      const output = document.getElementById("shopping-list-output");
+      output.innerHTML = ""; 
+      shoppingList.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        output.appendChild(li);
+      });
+    });
+
+    document.getElementById("mealPlannerForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      alert("Meal Plan Submitted!");
+    });
+
+    
+  </script>
+</body>
+</html>
